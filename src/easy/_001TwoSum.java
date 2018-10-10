@@ -27,8 +27,8 @@ public class _001TwoSum {
 				}
 			}
 		}
-//		return null;//官方题解
-		throw new IllegalArgumentException("No two sum solution");
+//		return null;
+		throw new IllegalArgumentException("No two sum solution");//官方题解
 	}
 
 	public static void main(String[] args) {
