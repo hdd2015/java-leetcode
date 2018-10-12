@@ -34,7 +34,8 @@ public class _001TwoSum {
 	}
 
 	/**
-	 * 方法2：使用了两次迭代。 通过以空间换取速度的方式，我们可以将查找时间从 O(n) 降低到 O(1)
+	 * 方法2：两遍哈希表
+	 * 使用了两次迭代。 通过以空间换取速度的方式，我们可以将查找时间从 O(n) 降低到 O(1)
 	 * 保持数组中的每个元素与其索引相互对应的最好方法是什么？哈希表
 	 * 
 	 * 复杂度分析：
@@ -58,10 +59,29 @@ public class _001TwoSum {
 	    throw new IllegalArgumentException("No two sum solution");
 	}
 	
+	/**
+	 * 方法三：一遍哈希表 在进行迭代并将元素插入到表中的同时，我们还会回过头来检查表中是否已经存在当前元素所对应的目标元素。
+	 * 如果它存在，那我们已经找到了对应解，并立即将其返回。
+	 * 
+	 * 时间复杂度：O(n)， 我们只遍历了包含有 n 个元素的列表一次。在表中进行的每次查找只花费 O(1)的时间。
+	 * 空间复杂度：O(n)， 所需的额外空间取决于哈希表中存储的元素数量，该表最多需要存储 n 个元素
+	 */
+	public int[] twoSum3(int[] nums, int target) {
+		  Map<Integer, Integer> map = new HashMap<>();
+		    for (int i = 0; i < nums.length; i++) {
+		        int complement = target - nums[i];
+		        if (map.containsKey(complement)) {
+		            return new int[] { map.get(complement), i };
+		        }
+		        map.put(nums[i], i);
+		    }
+		    throw new IllegalArgumentException("No two sum solution");
+	}
+	
 	public static void main(String[] args) {
 		_001TwoSum solution = new _001TwoSum();
 		int[] nums = new int[] { 0, 1, 3, 2, 7, 11, 15 };
 		int target = 12;
-		System.out.println(Arrays.toString(solution.twoSum2(nums, target)));
+		System.out.println(Arrays.toString(solution.twoSum3(nums, target)));
 	}
 }
