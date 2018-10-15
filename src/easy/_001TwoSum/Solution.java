@@ -1,4 +1,4 @@
-package easy;
+package easy._001TwoSum;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -12,7 +12,7 @@ import java.util.Map;
  * 给定 nums = [2, 7, 11, 15], target = 9
  * 因为 nums[0] + nums[1] = 2 + 7 = 9 所以返回 [0, 1]
  */
-public class _001TwoSum {
+public class Solution {
 	
 	/**
 	 * 方法1：循环两次
@@ -80,7 +80,7 @@ public class _001TwoSum {
 	}
 	
 	public static void main(String[] args) {
-		_001TwoSum solution = new _001TwoSum();
+		Solution solution = new Solution();
 		int[] nums = new int[] { 0, 1, 3, 2, 7, 11, 15 };
 		int target = 12;
 		System.out.println(Arrays.toString(solution.twoSum3(nums, target)));
